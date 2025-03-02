@@ -1,15 +1,24 @@
 <div class="login-container">
-    <h2>Login</h2>    
-    <form (ngSubmit)="onLogin()">
-      <input type="text" [(ngModel)]="username" name="username" placeholder="Username" required />
-      <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required />
-      <button type="submit">Login</button>
+    <h2>Enter your Credentials!</h2>
+    <form (ngSubmit)="onSubmit()">
+        <!-- username field -->
+        <label for="username">User Name</label>
+        <input type="text" id="name" [(ngModel)]="username" name = "username" required>
+        
+
+        <!-- Password field -->
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)] ="password" name="password" required minlength="8" #passwordInput="ngModel">
+        <div class="error" *ngIf="passwordInput.invalid && passwordInput.touched">
+            <span *ngIf="passwordInput.errors?.['required']">Password is required</span>
+            <span *ngIf="passwordInput.errors?.['minlength']">Password must be at least 8 characters.</span>
+        </div>
+
+        <!-- submit button -->
+        <button type="submit" (click)="onSubmit()">Login</button>
     </form>
-    
+
     <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
     <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+</div>
 
-
-    
-  </div>
-  

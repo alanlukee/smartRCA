@@ -1,0 +1,61 @@
+<app-dashboard></app-dashboard>
+<div class="search-container">
+    <form (ngSubmit)="search()">
+
+        <div class="form-group">
+            <label>SPR NO:</label>
+            <input type="text"[(ngModel)]="searchCriteria.SPRNo" name ="SPRNo">
+        </div>
+
+        <div class="form-group">
+            <label>Project</label>
+            <input type="text"[(ngModel)]="searchCriteria.project" name="project">
+        </div>
+
+        <div class="form-group" >
+            <label>Headline</label>
+            <input type="text" [(ngModel)]="searchCriteria.headline" name="headline">
+        </div>
+
+        <div class="form-group">
+            <label >Status:</label>
+            <select [(ngModel)]="searchCriteria.status" name="status">
+                <option value="">All</option>
+                <option value="Open">Open</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Closed">Closed</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Assignee:</label>
+            <input type="text" [(ngModel)]="searchCriteria.assignee" name="assignee">
+        </div>
+
+        <div class="button-group">
+            <button type="search">Search</button>
+            <button type="CreateIssue">New Issue +</button>
+        </div>
+    </form>
+
+    <table *ngIf="searchResults.length> 0">
+        <thead>
+            <tr>
+                <th>SPR No</th>
+                <th>Headline</th>
+                <th>Project</th>
+                <th>Status</th>
+                <th>Assignee</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of searchResults">
+                    <td>{{ item.SPRNo}}</td>
+                    <td>{{ item.headline}}</td>
+                    <td>{{item.project}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.assignee}}</td>
+                </tr>
+                </tbody>
+    </table>
+</div>

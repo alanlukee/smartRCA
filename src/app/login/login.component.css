@@ -1,4 +1,4 @@
-/* Use a modern, clean font */
+
 body {
     font-family: 'Poppins', sans-serif; /* You can also use Roboto, Lato, or Open Sans */
     display: flex;
@@ -8,8 +8,8 @@ body {
     background-color: #f4f4f4;
     margin: 0;
 }
-  
-.login-container {
+
+.login-container{
     width: 320px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -24,8 +24,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-  
-input {
+
+input{
     width: 80%;  /* Reduced width for username and password */
     padding: 8px;
     margin: 8px 0;
@@ -36,8 +36,8 @@ input {
     margin-left: auto;
     margin-right: auto;
 }
-  
-button {
+
+button{
     width: 85%; /* Slightly smaller than full width */
     padding: 12px;
     background-color: #007bff; /* Bootstrap Primary Blue */
@@ -48,18 +48,16 @@ button {
     font-size: 16px;
     transition: 0.3s ease;
 }
-  
-button:hover {
-    background-color: #0056b3; /* Darker Blue on Hover */
-}
-  
-.error {
+.error{
     color: red;
-    margin-top: 12px;
-    font-weight: 600;
+    font-size: 12px;
+    margin-top: 5px;
+
 }
-.success{
-    color: green;
-    margin-top: 12px;
-    font-weight: 600;
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+
+button:hover{
+    background-color: darkblue;
 }
